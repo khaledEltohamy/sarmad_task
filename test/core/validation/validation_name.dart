@@ -7,10 +7,6 @@ void main() {
      final passed = Validations.validateName("Khaled");
      expect(passed, null);
    });
-    test("system shall validation with name with not real name", () {
-     final passed = Validations.validateName("Khaled11234e3redew_ ");
-     print(passed);
-   });
 
      test("system shall required at least one name of user (fname | mName) is passed", () {
        final passed = Validations.validateOneName("Khaled" , null);
