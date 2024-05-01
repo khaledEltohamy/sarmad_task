@@ -17,6 +17,7 @@ class RemoteDataSource extends BaseDataSource {
     }
 
    }on DioException catch (e){
+    
     if (e.response != null){
        if (e.response!.statusCode == 500){
       throw ExceptionService();

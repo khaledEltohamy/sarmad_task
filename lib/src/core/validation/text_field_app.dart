@@ -66,14 +66,12 @@ class TextFieldApp extends StatelessWidget implements Validations {
       onEditingComplete: onEditingComplete,
       readOnly: readOnly,
       focusNode: focusFieldNode,
-
+      
       onTap: onTap,
-      inputFormatters: [
-        FilteringTextInputFormatter.deny(RegExp(r'^0+')),
-      ],
+      inputFormatters: <TextInputFormatter>[
+       FilteringTextInputFormatter.allow(RegExp('[a-z]'))
+],
       keyboardType: textType,
-      validator: (value) => validator!(value),
-      // validator: (value) => isPassword ? Validations.validatePassword(value) : Validations.validatePhone(value),
       cursorColor: ColorApp.primaryColor(),
       controller: controllerText,
       textInputAction: action,
