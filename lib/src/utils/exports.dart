@@ -1,4 +1,7 @@
 
+//Main 
+export 'package:sarmad_task/main_common.dart';
+
 // FLutter package
 export 'package:flutter/material.dart';
 export 'package:flutter/foundation.dart';
@@ -10,6 +13,7 @@ export 'package:sarmad_task/src/config/theme/color_app.dart';
 // Utils
 export '../utils/constants.dart';
 export 'package:sarmad_task/src/utils/extensions.dart';
+export 'package:sarmad_task/src/utils/string_helper.dart';
 
 
 //Core 
@@ -18,10 +22,11 @@ export 'package:sarmad_task/src/core/network/network_checker.dart';
 export 'package:sarmad_task/src/core/errors/faliure.dart';
 export 'package:sarmad_task/src/core/errors/error_model.dart';
 export 'package:sarmad_task/src/core/validation/text_fields_widgets.dart';
+export 'package:sarmad_task/src/core/validation/validations.dart';
 
 
 
-
+// Bloc
 export 'package:bloc/bloc.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -60,11 +65,11 @@ export 'package:get_it/get_it.dart';
 export 'package:sarmad_task/src/features/search_criterial/presentation/bloc/search_criteria_bloc.dart';
 
 //screens
+
 export 'package:sarmad_task/src/features/search_criterial/presentation/view/screen/search_criteria_screen.dart';
 //widgets
 export 'package:sarmad_task/src/features/search_criterial/presentation/view/widgets/list_search_criteria_widget.dart';
 export 'package:sarmad_task/src/features/search_criterial/presentation/view/widgets/form_request_widget.dart';
 export 'package:sarmad_task/src/features/search_criterial/presentation/view/widgets/item_search_criteria_widget.dart';
-
 
 

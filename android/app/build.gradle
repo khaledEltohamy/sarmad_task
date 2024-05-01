@@ -39,12 +39,27 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    
+    flavorDimensions "default"
+    productFlavors {
+       productiion {
+        dimension "default"
+        resValue "string", "app_name", "sarmad_task"
+    }
+       stage {
+        dimension "default"
+        resValue "string", "app_name", "sarmad_task-stage"
+        applicationIdSuffix ".stage"
+    }
+       dev {
+        dimension "default"
+        resValue "string", "app_name", "sarmad_task-debug"
+        applicationIdSuffix ".debug"
+    }
+    } 
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.sarmad_task"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

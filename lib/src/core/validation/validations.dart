@@ -1,30 +1,38 @@
 
 
+import '../../utils/exports.dart';
+
 abstract class Validations {
-  // static const String _phoneNoRegExp = r'^(?:[0+][0-9])';
-  // static const String _visaNoRegExp = r'^(?:[0-9])?[0-9]{16}$';
-  // static const String _cvvNoRegExp = r'^(?:[0-9])?[0-9]{3}$';
+  static const String _nameNoRegExp = r'[a-zA-Zء-ي]';
+  static String regexPatternN = r'^[\p{L}\p{N}\p{Zs}]';
 
   static String? validateName(String? name) {
-    if (name!.trim().isEmpty) return 'هذا الحقل مطلوب';
-    if (name.length < 2) return 'Name must be at least 2 characters';
-    if (name.length > 50) return 'Name must be at most 50 character';
+   if (!RegExp(_nameNoRegExp).hasMatch(name!)) return nameValidtionErrorMassage;
+    return null;
+  }
+   static String? validateOneName(String? fName ,lName ) {
+    if (fName == null && lName == null){
+      return requiredNameValidtionErrorMassage;
+    }
     return null;
   }
 
-  static String? validateIndetiferCard(String? name) {
-    print(name);
-    if (name!.trim().isEmpty) return 'هذا الحقل مطلوب';
-    if (!name.startsWith("1")) return "هذا الحقل يجب ان يبدا برقم ١ ";
-    if (name.length < 9) return 'يجب ان يحتوي علي ٩ عناصر علي الاقل';
-    if (name.length > 14) return 'يجب الا يتعدي ال ١٤ عنصر';
-
+  static String? validateCountry(String? country) {
+    if (country != null){
+    if (!isCountryName(country)) return countryValidtionErrorMassage;
+    }
     return null;
   }
 
-
-
- 
+static bool isCountryName(String input) {
+  input = input.trim().toLowerCase(); 
+  for (String country in countriesName) {
+    if (country.toLowerCase() == input) {
+      return true;
+    }
+  }
+  return false;
+}
 
 
 

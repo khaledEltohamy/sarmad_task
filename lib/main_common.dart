@@ -4,11 +4,11 @@ import 'src/utils/exports.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.initDI();
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Widget screenRoot;
+  const MyApp({super.key, required this.screenRoot});
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SearchCriterialscreen(),
+        home: screenRoot,
       ),
     );
   }

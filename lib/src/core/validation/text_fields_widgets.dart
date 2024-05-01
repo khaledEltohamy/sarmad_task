@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'text_field_app.dart';
-import 'validations.dart';
 
 class TextFieldWidget {
   // users information Field
@@ -8,6 +7,7 @@ class TextFieldWidget {
     required BuildContext context,
     required TextEditingController textEditingController,
     String? hint,
+    String? Function(String?)? validationFun,
     String? label,
     Key? key ,
     Map<String, dynamic>? map,
@@ -24,7 +24,7 @@ class TextFieldWidget {
         withPrefixIcon: false,
         prefixChild: const Icon(Icons.person_outline),
         focusFieldNode: focusNode,
-        validator: (_) => Validations.validateName(textEditingController.text),
+        validator:validationFun,
       );
 
 }

@@ -59,6 +59,8 @@ class TextFieldApp extends StatelessWidget implements Validations {
   @override
   Widget build(BuildContext context) {
     String locale = "en";
+    String regexPattern = r'^[\p{L}\p{Zs} ]*$';
+
     return TextFormField(
       key: key,
       onChanged: onChange,
@@ -69,7 +71,7 @@ class TextFieldApp extends StatelessWidget implements Validations {
       
       onTap: onTap,
       inputFormatters: <TextInputFormatter>[
-       FilteringTextInputFormatter.allow(RegExp('[a-z]'))
+       FilteringTextInputFormatter.allow(RegExp('[a-z]'), )
 ],
       keyboardType: textType,
       cursorColor: ColorApp.primaryColor(),
