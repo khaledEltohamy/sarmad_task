@@ -16,7 +16,7 @@ When using stage: We can change the way the results are displayed using gridview
 
 When using production: the results are displayed in a fixed listview.
 
-### An explanation of how to build the application and tests
+### An explanation of how to build the application
 
 - architecture : Clean architecture
 - state managment : Bloc - Cubit
@@ -27,7 +27,9 @@ When using production: the results are displayed in a fixed listview.
 
 All layers have been tested:
 
-Data source test cases:
+##### Data Layer ::
+
+###### Data source test cases:
 - Search critical Request must be successful response status 200 when send first name and middle name together.
 
 - Search critical Request must be successful response status 200 when send first name or middle name.
@@ -36,21 +38,39 @@ Data source test cases:
 
 - Search critical request must be failed response status 500 when send nationalty not matched with real country name.
 
+###### Model test cases:
+- should convert json file to Model object.
+
+- Show all fields is string datatype when send request.
+
+- Check if the one of response list element contains the same name.
+
+###### Repository test cases:
+- Check device connection.
+
+- When online device should return remote data when the call to remote data source is successful.
+
+- when online device Should return server failure when the call to remote data source with failed data.
+
+- When device offlibe Should return offline failure when the call to remote data source.
+
+##### Domain Layer ::
+
+###### Entity  test cases : 
+- should personModel is subclass of personEntity.
 
 
+###### Usecase test cases :
+- Should get right of success response person with success field request.
+
+- Should get left of failure response person with failure field request.
 
 
+##### Peresentstion Layer ::
 
+###### Bloc test cases :
+- init nothing state.
 
+- emits SearchCriteriaLoading and SearchCriteriaSuccess when RequestPerson is successCase.
 
-
-, we just need you to
-show these data (Name, Description, Nationality, Place of birth
-and the score).
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- emits SearchCriteriaLoading ,  SearchCriteriaField when RequestPerson is Fialure Case.

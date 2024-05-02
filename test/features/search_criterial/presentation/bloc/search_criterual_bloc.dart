@@ -19,6 +19,7 @@ void main() {
     final RequestPerson requestSuccessPerson = RequestPerson.successCase();
     final RequestPerson requestFieldPerson = RequestPerson.fieldNameCase();
     final ResponsePerson responsePerson = ResponsePerson.successCase();
+    
     blocTest<SearchCriteriaBloc, SearchCriteriaState>(
       'init nothing',
       build: () => SearchCriteriaBloc(MockSearchCriteriaUseCase()),
@@ -26,7 +27,7 @@ void main() {
     );
 
     blocTest<SearchCriteriaBloc, SearchCriteriaState>(
-      'emits SearchCriteriaSuccess when RequestPerson is successCase',
+      'emits SearchCriteriaLoading and SearchCriteriaSuccess when RequestPerson is successCase',
        
       build: () {
       when(mocSearchCriterialUseCase.getSearchCriteria(requestSuccessPerson)).thenAnswer((_)async=> Right(responsePerson));
@@ -38,7 +39,7 @@ void main() {
     );
     
     blocTest<SearchCriteriaBloc, SearchCriteriaState>(
-      'emits SearchCriteriaSuccess when RequestPerson is Field Case',
+      'emits SearchCriteriaLoading ,  SearchCriteriaField when RequestPerson is Fialure Case',
        
       build: () {
       when(mocSearchCriterialUseCase.getSearchCriteria(requestFieldPerson)).thenAnswer((_)async=> Left(FailureService()));

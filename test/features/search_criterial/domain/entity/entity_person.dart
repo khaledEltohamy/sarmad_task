@@ -1,6 +1,5 @@
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sarmad_task/src/features/search_criterial/domain/entity/preson_entity.dart';
 import 'package:sarmad_task/src/utils/exports.dart';
 
 

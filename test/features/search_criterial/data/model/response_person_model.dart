@@ -8,7 +8,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
      group("json mapper test", () {
-        final result = ResponsePerson.fromJson(jsonResponsePerson);
+     final result = ResponsePerson.fromJson(jsonResponsePerson);
 
 
     test("from Json , should convert json file to Response Person object", (){
