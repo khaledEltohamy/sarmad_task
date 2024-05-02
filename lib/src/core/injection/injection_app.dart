@@ -9,6 +9,8 @@ Future<void> initDI() async {
  
   getIt.registerLazySingleton<SearchCriteriaBloc>(
       () => SearchCriteriaBloc(getIt()));
+  getIt.registerLazySingleton<GridViewConvertListViewCubit>(
+      () => GridViewConvertListViewCubit(1));
 
 //UseCases
 

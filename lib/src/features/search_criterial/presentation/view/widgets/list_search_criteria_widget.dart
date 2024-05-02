@@ -30,5 +30,6 @@ class ListCriterialSearchWidget extends StatelessWidget {
         }
       },
     );
+ 
   }
 }

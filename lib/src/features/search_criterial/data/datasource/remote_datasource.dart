@@ -17,6 +17,7 @@ class RemoteDataSource extends BaseDataSource {
     }
 
    }on DioException catch (e){
+    print("KHALED ${e}");
     
     if (e.response != null){
        if (e.response!.statusCode == 500){

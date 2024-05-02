@@ -6,9 +6,10 @@ import 'package:sarmad_task/src/utils/exports.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  final result = ResponsePerson.fromJson(jsonResponsePerson);
 
      group("json mapper test", () {
+        final result = ResponsePerson.fromJson(jsonResponsePerson);
+
 
     test("from Json , should convert json file to Response Person object", (){
         expect(result, isA<ResponsePerson>());

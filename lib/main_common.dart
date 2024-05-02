@@ -11,8 +11,11 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.screenRoot});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-     create: (context) => di.getIt<SearchCriteriaBloc>(),     
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => di.getIt<SearchCriteriaBloc>()),
+        BlocProvider(create:(context)=> di.getIt<GridViewConvertListViewCubit>())
+      ],
       child: MaterialApp(
         title: 'Sarmad Task',
         theme: ThemeData(

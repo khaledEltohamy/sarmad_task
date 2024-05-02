@@ -38,7 +38,7 @@ void main() {
 
   group('Search Criterial Repository', () {
     final requestSuccessPeson = RequestPerson.successCase();
-    final requestFieldPeson = RequestPerson.fieldCase();
+    final requestFieldPeson = RequestPerson.fieldNameCase();
     final responsePerson =ResponsePerson.successCase();
 
  runTestsOnline(() {
@@ -66,7 +66,7 @@ void main() {
     });
 
   runTestsOffline((){
-  test("should return server failure when the call to remote data source ", () async{
+  test("should return offline failure when the call to remote data source ", () async{
       when(mockRemoteDataSource.getSearchCriteria(requestSuccessPeson))
             .thenAnswer((_) async => responsePerson);
         final result = await repository.getSearchCriteria(requestSuccessPeson);

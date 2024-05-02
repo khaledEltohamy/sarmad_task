@@ -1,7 +1,3 @@
-
-
-import 'package:sarmad_task/src/core/validation/validations.dart';
-
 import '../../../../../utils/exports.dart';
 
 class FormRequestWidget extends StatefulWidget {
@@ -36,11 +32,10 @@ class _FormRequestWidgetState extends State<FormRequestWidget> {
       key: formKey,
       child: Column(
         children: [
-          TextFieldWidget.nameTextField( key:const Key(firstNameFormKey), context: context, textEditingController: firstName, focusNode: firstNameFocusNode , hint: "First Name"),
-          TextFieldWidget.nameTextField(key:const  Key(middeNameFormKey) , context: context, textEditingController: lastName, focusNode: lastNameFocusNode,hint: "Middel Name"),
-          TextFieldWidget.nameTextField(key:const  Key(nationaltyKey), context: context, textEditingController: nationalty, focusNode: nationaltyFocusNode,hint: "Nationalty"),
+          TextFieldWidget.nameTextField( key: const  Key(firstNameFormKey), context: context, textEditingController: firstName, focusNode: firstNameFocusNode , hint: "First Name"),
+          TextFieldWidget.nameTextField(key:  const  Key(middeNameFormKey) , context: context, textEditingController: lastName, focusNode: lastNameFocusNode,hint: "Middel Name"),
+          TextFieldWidget.nameTextField(key:  const  Key(nationaltyKey), context: context, textEditingController: nationalty, focusNode: nationaltyFocusNode,hint: "Nationalty"),
           RawMaterialButton(fillColor: ColorApp.primaryButtonColor(), child: const Text("Search"), onPressed: (){
-            
             if (firstName.text.isEmpty && lastName.text.isEmpty){
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("One of this blank fields is required (First Name , Middel Name) to pass")));
             }else {

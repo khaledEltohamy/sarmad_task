@@ -14,7 +14,9 @@ void main() {
   final requestPersonSuccessCase =  RequestPerson.successCase();
   final requestPersonSuccessCaseFname =  RequestPerson.successCaseFname();
     final requestPersonSuccessCaseMname =  RequestPerson.successCaseMname();
-  final requestPersonFieldCase =  RequestPerson.fieldCase();
+  final requestPersonFieldNameCase =  RequestPerson.fieldNameCase();
+  final requestPersonFieldNatCase =  RequestPerson.fieldNatCase();
+
       final headers = <String, List<String>>{  "Accept":["application/json"],
         "Content-Type": ["application/json"]};
     
@@ -34,9 +36,14 @@ void main() {
       });
     });
 
-    test("search critrial Request must be field response without fName & mName", () {
+    test("search critrial Request must be failure response without fName & mName", () {
       dioAdapter.onPost(individual, (server) { 
-        server.reply(500,  headers: headers , requestPersonFieldCase);
+        server.reply(500,  headers: headers , requestPersonFieldNameCase);
+      });
+    });
+      test("search critrial Request must be failure response when send nationalty not matched with real country name", () {
+      dioAdapter.onPost(individual, (server) { 
+        server.reply(500,  headers: headers , requestPersonFieldNatCase);
       });
     });
     

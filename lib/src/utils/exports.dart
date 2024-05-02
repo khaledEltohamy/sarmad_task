@@ -29,6 +29,8 @@ export 'package:sarmad_task/src/core/validation/validations.dart';
 // Bloc
 export 'package:bloc/bloc.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
+export 'package:sarmad_task/src/features/search_criterial/presentation/cubit/gridview_listview_cubit.dart';
+export 'package:sarmad_task/src/features/search_criterial/presentation/bloc/search_criteria_bloc.dart';
 
 // Models
 export 'package:sarmad_task/src/features/search_criterial/data/model/response_preson.dart';
@@ -61,8 +63,6 @@ export 'package:equatable/equatable.dart';
 // injection
 export 'package:get_it/get_it.dart';
 
-//bloc
-export 'package:sarmad_task/src/features/search_criterial/presentation/bloc/search_criteria_bloc.dart';
 
 //screens
 
@@ -71,5 +71,6 @@ export 'package:sarmad_task/src/features/search_criterial/presentation/view/scre
 export 'package:sarmad_task/src/features/search_criterial/presentation/view/widgets/list_search_criteria_widget.dart';
 export 'package:sarmad_task/src/features/search_criterial/presentation/view/widgets/form_request_widget.dart';
 export 'package:sarmad_task/src/features/search_criterial/presentation/view/widgets/item_search_criteria_widget.dart';
+export 'package:sarmad_task/src/features/search_criterial/presentation/view/widgets/gridview_search_criteria_widget.dart';
 
 

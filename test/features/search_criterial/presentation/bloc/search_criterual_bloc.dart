@@ -17,7 +17,7 @@ void main() {
   } );
    group('SearchCriteriaBloc', () {
     final RequestPerson requestSuccessPerson = RequestPerson.successCase();
-    final RequestPerson requestFieldPerson = RequestPerson.fieldCase();
+    final RequestPerson requestFieldPerson = RequestPerson.fieldNameCase();
     final ResponsePerson responsePerson = ResponsePerson.successCase();
     blocTest<SearchCriteriaBloc, SearchCriteriaState>(
       'init nothing',

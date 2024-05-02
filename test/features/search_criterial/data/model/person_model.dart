@@ -5,7 +5,7 @@ void main() {
 
     group("json mapper test", () {
     final result = PersonModel.fromJson(jsonPersonModel);
-    test("from Json , should convert json file to Response Person object and check if the one of list element contain the same name", ()async {  
+    test("from Json , should convert json file to Model object", ()async {  
         expect(result, personModel);
     });
 

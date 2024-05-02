@@ -1,4 +1,4 @@
-
+import 'package:sarmad_task/src/features/search_criterial/presentation/view/widgets/gridview_listview_search_criteria_widget.dart';
 
 import '../../../../../utils/exports.dart';
 
@@ -18,8 +18,9 @@ class _SearchCriterialscreenState extends State<SearchCriterialscreen> {
       body: Container(
         padding: const EdgeInsets.all(16),
         child: Column(children: [
-          _getFormFieldFlavor(),
-          const ListCriterialSearchWidget(),
+          const FormRequestWidget(),
+           _getFormFieldFlavor(),
+         
         ].toAddSeparator(element: const SizedBox(height: 24)).toList()),
       )
     );
@@ -28,13 +29,13 @@ class _SearchCriterialscreenState extends State<SearchCriterialscreen> {
  Widget  _getFormFieldFlavor(){
     switch(AppConfig.flavor){
       case Flavor.dev:
-      return const  FormRequestWidget();
+      return const  GridviewListViewSearchCriteriaWidget();
       case Flavor.stage:
-      return const  FormRequestWidget();
+      return   const GridViewCriterialSearchWidget();
       case Flavor.production:
-      return const  FormRequestWidget();
+      return  const ListCriterialSearchWidget();
       default:
-     return const  FormRequestWidget();
+     return  const ListCriterialSearchWidget();
     }
   }
 }

@@ -14,7 +14,7 @@
             "name": "sarmad_task-stage",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release",
+            "flutterMode": "debug",
             "program": "lib/stage_main.dart",
             "args": ["--flavor", "stage"]
         },
@@ -22,7 +22,7 @@
             "name": "sarmad_task",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release",
+            "flutterMode": "debug",
             "program": "lib/production_main.dart",
             "args": ["--flavor", "productiion" ]
         }

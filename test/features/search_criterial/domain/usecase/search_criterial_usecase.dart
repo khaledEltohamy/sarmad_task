@@ -15,7 +15,7 @@ void main() async{
 
   group("check cycle of search criterial useCase", () { 
     final RequestPerson requestSuccessPerson = RequestPerson.successCase();
-    final RequestPerson requestFieldPerson = RequestPerson.fieldCase();
+    final RequestPerson requestFieldPerson = RequestPerson.fieldNameCase();
     final ResponsePerson responsePerson = ResponsePerson.successCase();
     test("should get right of success response person", () async {
     when(mockSearchCriteriaRepository.getSearchCriteria(requestSuccessPerson)).thenAnswer((_) async=> Right(responsePerson));
