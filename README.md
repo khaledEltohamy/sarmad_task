@@ -74,3 +74,18 @@ All layers have been tested:
 - emits SearchCriteriaLoading and SearchCriteriaSuccess when RequestPerson is successCase.
 
 - emits SearchCriteriaLoading ,  SearchCriteriaField when RequestPerson is Fialure Case.
+
+##### Core Layer ::
+
+###### Validation test cases :
+- validation country input field.
+
+system shall matches with nationalty with real country name is success case.
+
+system shall not matches with nationalty with fake name is failure case.
+
+- system shall validation input name with real name.
+
+system shall required at least one name of user (fname | mName) is passed.
+
+system shall required at least one name of user (fname | mName) is not passed.

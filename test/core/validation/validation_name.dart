@@ -3,7 +3,7 @@ import 'package:sarmad_task/src/utils/exports.dart';
 
 void main() {
   group("validation name input field", () { 
-   test("system shall validation with name with real name", () {
+   test("system shall validation input name with real name", () {
      final passed = Validations.validateName("Khaled");
      expect(passed, null);
    });
