@@ -28,30 +28,35 @@ class _FormRequestWidgetState extends State<FormRequestWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: Column(
-        children: [
-          TextFieldWidget.nameTextField( key: const  Key(firstNameFormKey), context: context, textEditingController: firstName, focusNode: firstNameFocusNode , hint: "First Name"),
-          TextFieldWidget.nameTextField(key:  const  Key(middeNameFormKey) , context: context, textEditingController: lastName, focusNode: lastNameFocusNode,hint: "Middel Name"),
-          TextFieldWidget.nameTextField(key:  const  Key(nationaltyKey), context: context, textEditingController: nationalty, focusNode: nationaltyFocusNode,hint: "Nationalty"),
-          RawMaterialButton(fillColor: ColorApp.primaryButtonColor(), child: const Text("Search"), onPressed: (){
-            if (firstName.text.isEmpty && lastName.text.isEmpty){
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("One of this blank fields is required (First Name , Middel Name) to pass")));
-            }else {
-              if (nationalty.text.isNotEmpty){
-              if (Validations.isCountryName(nationalty.text)){
-               BlocProvider.of<SearchCriteriaBloc>(context).add(GetSearchCriteria(requestPerson: RequestPerson(fname: firstName.text, mname: lastName.text, nat: nationalty.text)));
+    return SizedBox(
+      height: 250,
+      child: Form(
+        key: formKey,
+        child: Column(
+          children: [
+            Expanded(child: TextFieldWidget.nameTextField( key: const  Key(firstNameFormKey), context: context, textEditingController: firstName, focusNode: firstNameFocusNode , hint: "First Name")),
+            Expanded(child: TextFieldWidget.nameTextField(key:  const  Key(middeNameFormKey) , context: context, textEditingController: lastName, focusNode: lastNameFocusNode,hint: "Middel Name")),
+            Expanded(child: TextFieldWidget.nameTextField(key:  const  Key(nationaltyKey), context: context, textEditingController: nationalty, focusNode: nationaltyFocusNode,hint: "Nationalty")),
+            RawMaterialButton(
+              key: const Key(searchFormKey),
+              fillColor: ColorApp.primaryButtonColor(), child: const Text("Search"), onPressed: (){
+              if (firstName.text.isEmpty && lastName.text.isEmpty){
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text(requiredNameValidtionErrorMassage)));
               }else {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Country Name is not correct")));
+                if (nationalty.text.isNotEmpty){
+                if (Validations.isCountryName(nationalty.text)){
+                 BlocProvider.of<SearchCriteriaBloc>(context).add(GetSearchCriteria(requestPerson: RequestPerson(fname: firstName.text, mname: lastName.text, nat: nationalty.text)));
+                }else {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text(countryValidtionErrorMassage)));
+                }
+                }else {
+                 BlocProvider.of<SearchCriteriaBloc>(context).add(GetSearchCriteria(requestPerson: RequestPerson(fname: firstName.text, mname: lastName.text, nat: nationalty.text)));
+                }
+                
               }
-              }else {
-               BlocProvider.of<SearchCriteriaBloc>(context).add(GetSearchCriteria(requestPerson: RequestPerson(fname: firstName.text, mname: lastName.text, nat: nationalty.text)));
-              }
-              
-            }
-          } )
-        ].toAddSeparator(element: const SizedBox(height: 12)).toList(),
+            } )
+          ].toAddSeparator(element: const SizedBox(height: 12)).toList(),
+        ),
       ),
     );
   }

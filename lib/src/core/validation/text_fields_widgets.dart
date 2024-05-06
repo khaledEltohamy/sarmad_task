@@ -14,7 +14,7 @@ class TextFieldWidget {
     required FocusNode focusNode,
   }) =>
       TextFieldApp(
-        
+        key: key,
         hint: hint ?? "",
         controllerText: textEditingController,
         textType: TextInputType.name,
