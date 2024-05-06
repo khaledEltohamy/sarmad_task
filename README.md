@@ -75,6 +75,13 @@ All layers have been tested:
 
 - emits SearchCriteriaLoading ,  SearchCriteriaField when RequestPerson is Fialure Case.
 
+###### Widget test cases :
+- system shall show text error massage when first name and middel name fileds are empty.
+
+- system shall show text error massage when nationalty field filed contauin fake country name.
+
+- system shall not show text error massage when first name and middel name fileds are not empty and nationalty is correct country name.
+
 ##### Core Layer ::
 
 ###### Validation test cases :
